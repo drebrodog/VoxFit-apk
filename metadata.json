@@ -1,0 +1,6 @@
+{
+  "name": "VoxFit",
+  "description": "Голосовой дневник силовых тренировок для тренажёрного зала от Rudenko A. D.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
