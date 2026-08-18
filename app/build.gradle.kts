@@ -11,6 +11,7 @@ plugins {
 
 android {
     namespace = "com.example"
+
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -23,7 +24,6 @@ android {
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -43,15 +43,16 @@ android {
         release {
             isCrunchPngs = false
             isMinifyEnabled = false
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+
             signingConfig = signingConfigs.getByName("release")
         }
 
         debug {
-            // Используется стандартный debug keystore Android Gradle Plugin.
         }
     }
 
@@ -137,16 +138,4 @@ dependencies {
 
     ksp(libs.androidx.room.compiler)
     ksp(libs.moshi.kotlin.codegen)
-}  testImplementation(libs.roborazzi)
-  testImplementation(libs.roborazzi.compose)
-  testImplementation(libs.roborazzi.junit.rule)
-  androidTestImplementation(platform(libs.androidx.compose.bom))
-  androidTestImplementation(libs.androidx.compose.ui.test.junit4)
-  androidTestImplementation(libs.androidx.espresso.core)
-  androidTestImplementation(libs.androidx.junit)
-  androidTestImplementation(libs.androidx.runner)
-  debugImplementation(libs.androidx.compose.ui.test.manifest)
-  debugImplementation(libs.androidx.compose.ui.tooling)
-  "ksp"(libs.androidx.room.compiler)
-  "ksp"(libs.moshi.kotlin.codegen)
 }
