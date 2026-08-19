@@ -3,7 +3,8 @@ name: Build VoxFit APK
 on:
   workflow_dispatch:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
@@ -19,15 +20,16 @@ jobs:
           distribution: temurin
           java-version: "17"
 
-      - name: Setup Gradle
-  uses: gradle/actions/setup-gradle@v4
-  with:
-    validate-wrappers: false
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          validate-wrappers: false
+          gradle-version: "9.3.1"
 
       - name: Build debug APK
         run: gradle :app:assembleDebug --stacktrace
 
-      - name: Upload APK
+      - name: Upload debug APK
         uses: actions/upload-artifact@v4
         with:
           name: VoxFit-debug-apk
